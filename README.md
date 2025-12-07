@@ -16,4 +16,12 @@
 * `./app php bin/console doctrine:fixtures:load`
 
 
-API documentation in docs/openapi.yml
+### API Endpoint (documentation in docs/openapi.yml)
+GET /api/payroll
+
+### Console commands
+`./app php bin/console app:employee:create`
+
+`./app php bin/console app:department:create`
+
+`./app php bin/console app:department:list`
