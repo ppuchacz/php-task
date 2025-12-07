@@ -1,0 +1,87 @@
+openapi: 3.0.3
+info:
+  title: Payroll API
+  version: 1.0.0
+servers:
+  - url: http://localhost:8888
+
+paths:
+  /api/payroll:
+    get:
+      operationId: getPayrollList
+      parameters:
+        - name: orderByColumn
+          in: query
+          schema:
+            type: string
+            example: name
+        - name: orderByDirection
+          in: query
+          schema:
+            type: string
+            enum:
+              - asc
+              - desc
+            default: asc
+
+        - name: name
+          in: query
+          schema:
+            type: string
+            example: Jan
+        - name: surname
+          in: query
+          schema:
+            type: string
+        - name: department
+          in: query
+          schema:
+            type: string
+            example: HR
+
+      responses:
+        '200':
+          description: Pomyślnie pobrano listę płac.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/PayrollEntry'
+        '400':
+          description: Bad request
+        '500':
+          description: Internal server error
+
+components:
+  schemas:
+    PayrollEntry:
+      type: object
+      properties:
+        name:
+          type: string
+          example: Jan
+        surname:
+          type: string
+          example: Kowalski
+        department:
+          type: string
+          example: HR
+        remunerationBase:
+          type: number
+          format: double
+          example: 3000
+        remunerationAddition:
+          type: number
+          format: double
+          example: 1000
+        bonusType:
+          type: string
+          enum:
+            - fixed
+            - percent
+          example: fixed
+        salary:
+          type: number
+          format: double
+          example: 4000

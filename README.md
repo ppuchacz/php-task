@@ -14,3 +14,6 @@
 
 # Seed data
 * `./app php bin/console doctrine:fixtures:load`
+
+
+API documentation in docs/openapi.yml
