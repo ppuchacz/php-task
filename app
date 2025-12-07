@@ -53,7 +53,8 @@ case "$action" in
   tests )
     shift
     eval "docker exec --env-file ../.env.test -it -u ${PUID} -w /var/www/${dir} ${container_php} \
-          php vendor/bin/simple-phpunit --testdox ${@}" ;;
+          php vendor/bin/simple-phpunit --testdox ${@}"
+    eval "docker exec -it -u ${PUID} -w /var/www/${dir} ${container_php} php vendor/bin/phpstan" ;;
   composer )
     shift
     eval "docker exec -it -u ${PUID} -w /var/www/${dir} ${container_php} php bin/composer ${@}" ;;

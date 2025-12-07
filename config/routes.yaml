@@ -1,1 +1,4 @@
-
+api_payroll:
+  path:   /api/payroll
+  controller: App\Payroll\UI\Http\PayrollController::list
+  methods: GET

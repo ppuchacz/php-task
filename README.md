@@ -11,3 +11,6 @@
 # Usage
 * `./app console {your-command-here}`
 * `./app stop`
+
+# Seed data
+* `./app php bin/console doctrine:fixtures:load`
